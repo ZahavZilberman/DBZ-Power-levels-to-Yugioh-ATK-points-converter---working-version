@@ -16,6 +16,7 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
         public bool IsTheStrongestCharacterInHisDeck { get; set; }
         public bool IsTheWeakestCharacterInHisDeck { get; set; }
         public Deck TheDeckThisGuyBelongsTo { get; set; }
+        public double stars { get; set; }
 
         public CharacterOrMonster()
         {
@@ -25,6 +26,7 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
             PowerLevel = 0;
             IsTheStrongestCharacterInHisDeck = false;
             IsTheWeakestCharacterInHisDeck = false;
+            stars = 0;
         }
 
     }

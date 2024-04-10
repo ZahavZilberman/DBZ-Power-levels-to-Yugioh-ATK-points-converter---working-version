@@ -21,11 +21,13 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
         public double ThePowerLevelGapBetweenTheStrongestAndWeakest { get; set; }
         public double ThePowerConvertorBetweenPowerLevelToATKPoints { get; set; }
         public string DeckName { get; set; }
+        public int DeckNumberInOrder { get; set; }
         #endregion
 
         #region Ctor
         public Deck()
         {
+            DeckNumberInOrder = 0;
             CharacterList = new List<CharacterOrMonster>();
             TheMonsterWithTheHighestPowerLevel = new CharacterOrMonster();
             TheMonsterWithTheLowestPowerLevel = new CharacterOrMonster();

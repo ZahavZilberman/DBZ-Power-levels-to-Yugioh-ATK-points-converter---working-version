@@ -4,7 +4,7 @@ If you still insist on downloading at, you can download the app's code and origi
 
 [https://www.mediafire.com/file/qy0timqb1f8mvnr/DBZ+Power+levels+to+Yugioh+ATK+points+converter+-+working+version+(4).zip/file](https://www.mediafire.com/file/qy0timqb1f8mvnr/DBZ+Power+levels+to+Yugioh+ATK+points+converter+-+working+version+(4).zip/file)
 
-And you can download the same app in a proper "customer" installable version without the code files here:
+And you can download the same app in a proper "customer" installable version without the code files and without any decks here:
 https://www.mediafire.com/file/1xnzpb5dee0bloi/Yugioh_converter_installation.zip/file
 
 As for how this app works:

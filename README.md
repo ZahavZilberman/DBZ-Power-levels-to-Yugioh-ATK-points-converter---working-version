@@ -1,4 +1,4 @@
-WARNING: Downloading this calculator to your PC can be dangerous and not recommended, even thought I assure you there are no viruses there. Do it at you're own risk. It's much safer to download it just to examine the game files.
+WARNING: Downloading this calculator to your PC can be dangerous and not recommended, even thought I assure you there are no viruses there. Do it at you're own risk. It's much safer to download it just to examine the calculator's files.
 
 If you still insist on downloading at, you can download the app's code and original files (and dozens of decks) here:
 

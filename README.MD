@@ -1,3 +1,14 @@
+WARNING: Downloading this calculator to your PC can be dangerous and not recommended, even thought I assure you there are no viruses there. Do it at you're own risk. It's much safer to download it just to examine the calculator's files.
+
+If you still insist on downloading at, you can download the app's code and original files (and dozens of decks) here:
+
+[https://www.mediafire.com/file/qy0timqb1f8mvnr/DBZ+Power+levels+to+Yugioh+ATK+points+converter+-+working+version+(4).zip/file](https://www.mediafire.com/file/qy0timqb1f8mvnr/DBZ+Power+levels+to+Yugioh+ATK+points+converter+-+working+version+(4).zip/file)
+
+And you can download the same app in a proper "customer" installable version without the code files and without any decks here:
+https://www.mediafire.com/file/1xnzpb5dee0bloi/Yugioh_converter_installation.zip/file
+
+As for how this app works:
+
 This is a converter between DBZ power levels gaps (scouter numbers, etc) to Yugioh strength terms (attack and defense points of monster cards. It's a console app, working in a logic of input-output: the user inputs some variables, and the app calculates the ATK/DEF points of DBZ charachters based on those variables and the characters power levels. I only created this to make a Yugioh computer game where most monster cards are DBZ characters, which I have power levels for all of them.
 
 While this is obviously useless for benefical stuff, the basic mathematical idea behind this, which includes (according to chatGPT) scalling factors, exponents, use of power, Logarithms, base numbers and Set theory, may be usefull for other (benefical) mathematical calulcations not related to pointless nonesense such as games or anime. Such as finance stuff.

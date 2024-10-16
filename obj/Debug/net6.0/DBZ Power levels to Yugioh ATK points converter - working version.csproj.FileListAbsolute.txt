@@ -1,0 +1,29 @@
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\bin\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.exe
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\bin\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.deps.json
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\bin\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.runtimeconfig.json
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\bin\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.dll
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\bin\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.pdb
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.AssemblyInfoInputs.cache
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.AssemblyInfo.cs
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.csproj.CoreCompileInputs.cache
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.dll
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\refint\DBZ Power levels to Yugioh ATK points converter - working version.dll
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.pdb
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.genruntimeconfig.cache
+C:\Users\zahav\source\repos\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\ref\DBZ Power levels to Yugioh ATK points converter - working version.dll
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\bin\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.exe
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\bin\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.deps.json
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\bin\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.runtimeconfig.json
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\bin\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.dll
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\bin\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.pdb
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.AssemblyInfoInputs.cache
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.AssemblyInfo.cs
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.csproj.CoreCompileInputs.cache
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.dll
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\refint\DBZ Power levels to Yugioh ATK points converter - working version.dll
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.pdb
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.genruntimeconfig.cache
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\ref\DBZ Power levels to Yugioh ATK points converter - working version.dll
+C:\Users\zahav\OneDrive\Desktop\my own software\DBZ Power levels to Yugioh ATK points converter - working version\obj\Debug\net6.0\DBZ Power levels to Yugioh ATK points converter - working version.sourcelink.json

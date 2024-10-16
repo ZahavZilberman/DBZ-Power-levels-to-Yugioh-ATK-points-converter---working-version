@@ -1,9 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System.ComponentModel;
-using System.IO;
-using System.Reflection;
-using System.Security;
-using System.Security.Cryptography.X509Certificates;
+﻿
 using System.Xml.Linq;
 
 namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
@@ -18,9 +13,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                 Console.Clear();
                 Console.WriteLine("\x1b[3J");
-
                 List<Deck> AllDecksWithAllMonsters = new List<Deck>();
-                AllDecksWithAllMonsters = GettingAllDecks();
+                AllDecksWithAllMonsters = GettingAllDecks();                
                 Console.WriteLine("Welcome to the dbz power levels to yugioh converter.");
                 Console.WriteLine("This calculator receives the general properties of a DBZ deck");
                 Console.WriteLine("And after that, it can calculate the ATK points of every character sepreatly.");
@@ -42,9 +36,11 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                 Console.WriteLine();
                 // Console.WriteLine("\x1b[3J"); is the code that solves the "the console won't clear anything" problem
 
+                
+                string choiceWhatToDoNow = Console.ReadLine();
+
                 Deck deck = new Deck();
                 CharacterOrMonster CreatedMonster = new CharacterOrMonster();
-                string choiceWhatToDoNow = Console.ReadLine();
                 while (choiceWhatToDoNow != "3" && choiceWhatToDoNow != "2" && choiceWhatToDoNow != "1" && choiceWhatToDoNow != "4" && choiceWhatToDoNow != "5" && choiceWhatToDoNow != "6")
                 {
                     Console.WriteLine();
@@ -54,6 +50,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                 #endregion
 
+                GC.Collect();
+
                 #region Taking the user to his choice of conversation
 
                 if (choiceWhatToDoNow == "1")
@@ -61,6 +59,7 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                     Console.Clear();
                     Console.WriteLine("\x1b[3J");
                     AllDecksWithAllMonsters = CalculatingGeneralDeckDetails(AllDecksWithAllMonsters);
+                    GC.Collect();
                 }
 
                 else if (choiceWhatToDoNow == "2")
@@ -68,30 +67,36 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                     Console.Clear();
                     Console.WriteLine("\x1b[3J");
                     CreatedMonster = CalculatingSpecificCharacterATKPoints(AllDecksWithAllMonsters);
+                    GC.Collect();
                 }
                 else if (choiceWhatToDoNow == "3")
                 {
                     Console.Clear();
                     Console.WriteLine("\x1b[3J");
                     AllDecksWithAllMonsters = CalculatingSpecificCharacterDEFPoints(AllDecksWithAllMonsters);
+                    GC.Collect();
                 }
                 else if (choiceWhatToDoNow == "4")
                 {
                     Console.Clear();
                     Console.WriteLine("\x1b[3J");
                     ShowingAllInfo(AllDecksWithAllMonsters);
+                    GC.Collect();
                 }
                 else if(choiceWhatToDoNow == "5")
                 {
+                    
                     Console.Clear();
                     Console.WriteLine("\x1b[3J");
                     WritingDeckToTextFile(AllDecksWithAllMonsters);
+                    GC.Collect();
                 }
                 else if(choiceWhatToDoNow == "6")
                 {
                     Console.Clear();
                     Console.WriteLine("\x1b[3J");
                     DeleteDeck(AllDecksWithAllMonsters);
+                    GC.Collect();
                 }
 
                 #endregion
@@ -99,6 +104,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
             static List<Deck> CalculatingGeneralDeckDetails(List<Deck> ExistingDecks)
             {
+                GC.Collect();
+
                 Deck deck = new Deck();
                 Console.Clear();
                 Console.WriteLine("\x1b[3J");
@@ -299,6 +306,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                 #endregion
 
+                GC.Collect();
+
                 #region The variables that the calculator calculates without help
 
                 deck.TheMonsterWithTheLowestPowerLevel.PowerLevel = ThePowerNumberOfTheWeakestGuy;
@@ -329,6 +338,9 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                 Console.ReadLine();
                 Console.Clear();
                 Console.WriteLine("\x1b[3J");
+
+                GC.Collect();
+
                 return ExistingDecks;
 
                 #endregion
@@ -491,6 +503,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                 #endregion
 
+                GC.Collect();
+
                 #region Now to calculate and show the ATK points...
 
                 double GapBetweenThisMonsterAndWeakestMonsterInPowerLevel = CurrentCharacter.PowerLevel / TheMonstersDeck.TheMonsterWithTheLowestPowerLevel.PowerLevel;
@@ -502,9 +516,12 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                 CurrentCharacter.ATKPoints = TheActualAttackPoints;
                 CurrentCharacter.TheDeckThisGuyBelongsTo = TheMonstersDeck;
 
+                List<string> TheATKArray = new List<string>();
+                TheATKArray = TheActualAttackPoints.ToString("N").Split(',').ToList();
+
                 Console.Clear();
                 Console.WriteLine("\x1b[3J");
-                Console.WriteLine($"The ATK points of {NameForIt} (rounded) should be: {TheActualAttackPoints}");
+                Console.WriteLine($"The ATK points of {NameForIt} (rounded) should be: {TheATKArray.ElementAt(0)}");
                 Console.WriteLine();
                 Console.WriteLine("You can now view this monster's details by viewing its deck details.");
                 Console.WriteLine("Enter anything to return to the main meun.");
@@ -515,6 +532,7 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                 TheMonstersDeck.NumberOfMonstersStoredInIt = TheMonstersDeck.NumberOfMonstersStoredInIt + 1;
                 UpdateDeckWithNewMonster(TheMonstersDeck, CurrentCharacter);
 
+                GC.Collect();
 
                 return CurrentCharacter;
 
@@ -526,6 +544,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
             static void ShowingAllInfo(List<Deck> AllDecksToShow)
             {
+                GC.Collect();
+
                 Console.Clear();
                 Console.WriteLine("\x1b[3J");
 
@@ -599,6 +619,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                 }
 
                 #endregion
+
+                GC.Collect();
 
                 #region Writing its details
 
@@ -698,6 +720,15 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                 #endregion
 
+                List<string> HighestATKarray = new List<string>();
+                HighestATKarray = TheMonstersDeck.TheHighestAllowedATKPoints.ToString("N").Split(".").ToList();
+                List<string> LowestATKarray = new List<string>();
+                LowestATKarray = TheMonstersDeck.TheLowestAllowedATKPoints.ToString("N").Split(".").ToList();
+                List<string> HighesPowerLevelArray = new List<string>();
+                HighesPowerLevelArray = TheMonstersDeck.TheMonsterWithTheHighestPowerLevel.PowerLevel.ToString("N").Split(".").ToList();
+                List<string> LowestPowerLevelArray = new List<string>();
+                LowestPowerLevelArray = TheMonstersDeck.TheMonsterWithTheLowestPowerLevel.PowerLevel.ToString("N").Split(".").ToList();
+
                 Console.Clear();
                 Console.WriteLine("\x1b[3J");
                 Console.WriteLine($@"The following are the general details of the deck named {TheMonstersDeck.DeckName}.");
@@ -707,9 +738,9 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                 Console.WriteLine();
                 Console.WriteLine(@$"This deck named {TheMonstersDeck.DeckName}, contains: {TheMonstersDeck.CharacterList.Count - 2} monsters (not including the strongest and weakest ones).");
                 Console.WriteLine();
-                Console.WriteLine($@"The highest ATK points allowed for this deck is: {TheMonstersDeck.TheHighestAllowedATKPoints.ToString("N")}, and the lowest allowed are {TheMonstersDeck.TheLowestAllowedATKPoints.ToString("N")}.");
+                Console.WriteLine($@"The highest ATK points allowed for this deck is: {HighestATKarray.ElementAt(0)}, and the lowest allowed are {LowestATKarray.ElementAt(0)}.");
                 Console.WriteLine();
-                Console.WriteLine($@"The strongest DBZ monster here has a power level of {TheMonstersDeck.TheMonsterWithTheHighestPowerLevel.PowerLevel.ToString("N")}, and the weakest's power level is {TheMonstersDeck.TheMonsterWithTheLowestPowerLevel.PowerLevel.ToString("N")}.");
+                Console.WriteLine($@"The strongest DBZ monster here has a power level of {HighesPowerLevelArray.ElementAt(0)}, and the weakest's power level is {LowestPowerLevelArray.ElementAt(0)}.");
                 Console.WriteLine();
                 Console.WriteLine($@"The number of monsters that can be summoned without tributes is: {StarsNoTributes.Count}");
                 Console.WriteLine($@"And there are {StarsWithTributes.Count} monsters that do require tirbutes.");
@@ -719,10 +750,13 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                 for (int star = 1; star <= 12; star++)
                 {
-
                     double currentStarMinimum = Math.Round(TheMonstersDeck.TheLowestAllowedATKPoints + ((star - 1) * GapBetweenEachStar));
                     double currentStarMaximum = Math.Round(TheMonstersDeck.TheLowestAllowedATKPoints + (star) * GapBetweenEachStar);
-                    Console.WriteLine($@"{star} star: between {currentStarMinimum} to {currentStarMaximum}");
+                    List<string> MinArray = new List<string>();
+                    MinArray = currentStarMinimum.ToString("N").Split(".").ToList();
+                    List<string> MaxArray = new List<string>();
+                    MaxArray = currentStarMinimum.ToString("N").Split(".").ToList();
+                    Console.WriteLine($@"{star} star: between {MinArray.ElementAt(0)} to {MaxArray.ElementAt(0)}");
                 }
 
                 Console.WriteLine();
@@ -757,12 +791,16 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                         {
                             if (monster.Name != "Weakest" && monster.Name != "Strongest")
                             {
+                                List<string> PowerLevelArray = new List<string>();
+                                PowerLevelArray = monster.PowerLevel.ToString("N").Split(".").ToList();
+                                List<string> ATKArray = new List<string>();
+                                ATKArray = monster.ATKPoints.ToString("N").Split(".").ToList();
                                 Console.WriteLine();
                                 Console.WriteLine($"{monster.Name}:");
                                 Console.WriteLine();
-                                Console.WriteLine($@"{monster.Name}'s Power Level: {monster.PowerLevel.ToString("N")}");
+                                Console.WriteLine($@"{monster.Name}'s Power Level: {PowerLevelArray.ElementAt(0)}");
                                 Console.WriteLine();
-                                Console.WriteLine($@"{monster.Name}'s ATK points: {monster.ATKPoints.ToString("N")}");
+                                Console.WriteLine($@"{monster.Name}'s ATK points: {ATKArray.ElementAt(0)}");
                                 Console.WriteLine();
                                 if (monster.DEFPoints == 0 || monster.DEFPoints == 0.1 || monster.DEFPoints == monster.ATKPoints)
                                 {
@@ -771,7 +809,9 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                                 }
                                 else
                                 {
-                                    Console.WriteLine($@"{monster.Name}'s DEF Points: {monster.DEFPoints.ToString("N")}");
+                                    List<string> DEFArray = new List<string>();
+                                    DEFArray = monster.DEFPoints.ToString("N").Split(".").ToList();
+                                    Console.WriteLine($@"{monster.Name}'s DEF Points: {DEFArray.ElementAt(0)}");
                                     Console.WriteLine();
                                 }
                                 Console.WriteLine($@"the stars of this monster should be (not always accurate): {monster.stars}.");
@@ -800,6 +840,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                 }
 
                 #endregion
+
+                GC.Collect();
             }
 
             #endregion
@@ -808,6 +850,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
             static List<Deck> CalculatingSpecificCharacterDEFPoints(List<Deck> AllDecks)
             {
+                GC.Collect();
+
                 CharacterOrMonster CurrentCharacter = new CharacterOrMonster();
 
                 Console.Clear();
@@ -878,6 +922,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
 
                 #endregion
+
+                GC.Collect();
 
                 bool DoesTheUserWantsToApplyTheGapToAllCharacters = false;
                 Console.Clear();
@@ -982,17 +1028,20 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                     foreach (CharacterOrMonster monster in TheMonstersDeck.CharacterList)
                     {
-                        if (monster.Name == CurrentCharacter.Name)
+                        if (monster.Name.ToLower() == CurrentCharacter.Name.ToLower())
                         {
                             CurrentCharacter = monster;
                         }
                     }
 
                     #endregion
+
+                    GC.Collect();
                 }
                 else if (answerNumber == 2)
                 {
                     DoesTheUserWantsToApplyTheGapToAllCharacters = true;
+                    GC.Collect();
                 }
 
                 #region Entering the gap
@@ -1060,6 +1109,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                 #endregion
 
+                GC.Collect();
+
                 #region Calculating the DEF points of this monster
 
                 double convertingNumber = TheMonstersDeck.ThePowerConvertorBetweenPowerLevelToATKPoints;
@@ -1070,12 +1121,14 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                 #endregion
 
+                GC.Collect();
+
                 #region Updating the DEF points on local variables
 
                 AllDecks.Remove(TheMonstersDeck);
                 if (!DoesTheUserWantsToApplyTheGapToAllCharacters)
                 {
-                    TheMonstersDeck.CharacterList.Find(x => x == CurrentCharacter).DEFPoints = CurrentCharacter.ATKPoints + DEFBonus; ;
+                    TheMonstersDeck.CharacterList.Find(x => x == CurrentCharacter && x.Name.ToUpper() == CurrentCharacter.Name.ToUpper()).DEFPoints = CurrentCharacter.ATKPoints + DEFBonus;
                     CurrentCharacter.DEFPoints = CurrentCharacter.ATKPoints + DEFBonus;
                 }
                 else if (DoesTheUserWantsToApplyTheGapToAllCharacters)
@@ -1090,6 +1143,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                 #endregion
 
+                GC.Collect();
+
                 #region Updating the DEF points in the deck xml file
 
                 if (!DoesTheUserWantsToApplyTheGapToAllCharacters)
@@ -1103,23 +1158,33 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                 #endregion
 
+                GC.Collect();
+
                 #region Showing the result to the user
 
                 Console.Clear();
+                
                 Console.WriteLine("\x1b[3J");
                 if (!DoesTheUserWantsToApplyTheGapToAllCharacters)
                 {
-                    Console.WriteLine($@"{CurrentCharacter.Name} DEF points should be: {CurrentCharacter.ATKPoints + DEFBonus}.");
+                    List<string> defarray = new List<string>();
+                    double sum = CurrentCharacter.ATKPoints + DEFBonus;
+                    defarray = sum.ToString("N").Split(".").ToList();
+                    Console.WriteLine($@"{CurrentCharacter.Name} DEF points should be: {defarray.ElementAt(0)}.");
                 }
                 else if (DoesTheUserWantsToApplyTheGapToAllCharacters)
                 {
-                    Console.WriteLine($@"All of the monsters in the deck named {TheMonstersDeck.DeckName}'s DEF points are {DEFBonus} higher than their Attack points.");
+                    List<string> AllDefArray = new List<string>();
+                    AllDefArray = DEFBonus.ToString("N").Split(".").ToList();
+                    Console.WriteLine($@"All of the monsters in the deck named {TheMonstersDeck.DeckName}'s DEF points are {AllDefArray.ElementAt(0)} higher than their Attack points.");
                 }
                 Console.WriteLine(@$"And it's saved in the database.");
                 Console.WriteLine("Enter anything to go back to the main meun.");
                 Console.ReadLine();
                 Console.Clear();
                 Console.WriteLine("\x1b[3J");
+
+                GC.Collect();
 
                 return AllDecks;
 
@@ -1148,6 +1213,9 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                     deck.ReadDeckXMLFile(path);
                     AllDecks.Add(deck);
                 }
+
+                GC.Collect();
+
                 return AllDecks;
             }
 
@@ -1157,6 +1225,7 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
             static void WritingDeckToXMLFile(Deck deck)
             {
+                GC.Collect();
 
                 #region Writing a new deck file
                 List<string> whatToWriteToXML = new List<string>();
@@ -1223,6 +1292,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                 File.Delete($@"YugiohDBZConverter\DecksNavigator.xml");
                 DeckNavigatorToEdit.Save($@"YugiohDBZConverter\DecksNavigator.xml");
 
+                GC.Collect();
+
                 #endregion
             }
 
@@ -1233,6 +1304,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
             static void UpdateDeckWithNewMonster(Deck deck, CharacterOrMonster monster)
             {
+                GC.Collect();
+
                 // next time use the startgey of creating a list of strings - it is way easier than what you did here
 
                 /* Example code of editing an xml file:
@@ -1332,7 +1405,7 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                 </CharacterList>
                 </Deck>
                 */
-
+                GC.Collect();
             }
 
             #endregion
@@ -1341,6 +1414,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
             static void UpdatingDEFPoints(Deck deck, CharacterOrMonster monster = null)
             {
+                GC.Collect();
+
                 XDocument DeckFileToEdit = new XDocument(XDocument.Load($@"YugiohDBZConverter\{deck.DeckName}.xml"));
                 XElement root = DeckFileToEdit.Root;
                 XElement MonstersListElement = root.Element($@"CharacterList");
@@ -1444,6 +1519,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                 LetsTryWithAStringList.Add(@$"</Deck>");
                 File.Delete($@"YugiohDBZConverter\{deck.DeckName}.xml");
                 File.WriteAllLines($@"YugiohDBZConverter\{deck.DeckName}.xml", LetsTryWithAStringList);
+
+                GC.Collect();
             }
 
             #endregion
@@ -1452,6 +1529,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
             static double CheckingNumbers(string AskingForInputMessage, List<double> AlloweedIntegers, string? NonNumberErrorMessage = null, string? UserInput = null, string? NonAllowedNumbersErrorMessage = null, double MaximumAllowedNumber = double.NaN, double MinimumAllowedNumber = double.NaN)
             {
+                GC.Collect();
+
                 Console.Clear();
 
                 Console.WriteLine();
@@ -1600,6 +1679,7 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                     }
                 }
 
+                GC.Collect();
 
                 return double.Parse(UserInput);
 
@@ -1611,6 +1691,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
             static string CheckingWords(string AskingForInputMessage, List<string> AllowedWords, List<string> NotAllowedWords, string? UserInput = null, string? InvalidInputMessage = null, string? NotAllowedWordMessage = null)
             {
+                GC.Collect();
+
                 Console.Clear();
                 Console.WriteLine();
                 Console.WriteLine(AskingForInputMessage);
@@ -1678,6 +1760,7 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                 {
                     return UserInput;
                 }
+
                 throw new Exception("The code should not be able to reach this line..");
             }
 
@@ -1687,6 +1770,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
             static void WritingDeckToTextFile(List<Deck> AllDecks)
             {
+                GC.Collect();
+
                 #region finding the deck to save
 
                 CharacterOrMonster CurrentCharacter = new CharacterOrMonster();
@@ -1753,6 +1838,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                 #endregion
 
+                GC.Collect();
+
                 if (HasTheConverterFoundAMatchBetweenTheChoosenNameAndExistingDeckName)
                 {
                     #region the actual writing
@@ -1766,7 +1853,6 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                     }
                     else if(ToOverWrite == "yes" || ToOverWrite == "Irrelevant")
                     {
-
                         Console.Clear();
                         Console.WriteLine("\x1b[3J");
                         Console.WriteLine(@$"Writing the text file for the deck {TheMonstersDeck.DeckName}..");
@@ -1832,14 +1918,23 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                         #endregion
 
+                        List<string> HighestATKarray = new List<string>();
+                        HighestATKarray = Math.Round(TheMonstersDeck.TheHighestAllowedATKPoints).ToString("N").Split(".").ToList();
+                        List<string> LowestATKarray = new List<string>();
+                        LowestATKarray = TheMonstersDeck.TheLowestAllowedATKPoints.ToString("N").Split(".").ToList();
+                        List<string> HighesPowerLevelArray = new List<string>();
+                        HighesPowerLevelArray = TheMonstersDeck.TheMonsterWithTheHighestPowerLevel.PowerLevel.ToString("N").Split(".").ToList();
+                        List<string> LowestPowerLevelArray = new List<string>();
+                        LowestPowerLevelArray = TheMonstersDeck.TheMonsterWithTheLowestPowerLevel.PowerLevel.ToString("N").Split(".").ToList();            
+
                         AllDeckDetails.Add(@$"The details for the deck: {TheMonstersDeck.DeckName}");
                         AllDeckDetails.Add($@"");
                         AllDeckDetails.Add($@"General Deck details:");
                         AllDeckDetails.Add("");
                         AllDeckDetails.Add(@$"This deck named {TheMonstersDeck.DeckName}, contains: {TheMonstersDeck.CharacterList.Count - 2} monsters (not including the strongest and the weakest ones).");
                         
-                        AllDeckDetails.Add(@$"The highest ATK points allowed for this deck is: {Math.Round(TheMonstersDeck.TheHighestAllowedATKPoints).ToString("N")}, and the lowest allowed are {TheMonstersDeck.TheLowestAllowedATKPoints.ToString("N")}.");
-                        AllDeckDetails.Add($@"The strongest DBZ monster here has a power level of {TheMonstersDeck.TheMonsterWithTheHighestPowerLevel.PowerLevel.ToString("N")}, and the weakest's power level is {TheMonstersDeck.TheMonsterWithTheLowestPowerLevel.PowerLevel.ToString("N")}.");
+                        AllDeckDetails.Add(@$"The highest ATK points allowed for this deck is: {HighestATKarray.ElementAt(0)}, and the lowest allowed are {LowestATKarray.ElementAt(0)}.");
+                        AllDeckDetails.Add($@"The strongest DBZ monster here has a power level of {HighesPowerLevelArray.ElementAt(0)}, and the weakest's power level is {LowestPowerLevelArray.ElementAt(0)}.");
                         AllDeckDetails.Add($@"The deck contains {StarsNoTributes.Count} that can be summoned without tribues (up to 4 stars)");
                         AllDeckDetails.Add($@"and contains {StarsWithTributes.Count} monsters that require tributes (5-12 stars).");
                         AllDeckDetails.Add("");
@@ -1862,19 +1957,25 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                             {
                                 if (monster.Name != "Weakest" && monster.Name != "Strongest")
                                 {
+                                    List<string> PowerLevelArray = new List<string>();
+                                    PowerLevelArray = monster.PowerLevel.ToString("N").Split(".").ToList();
+                                    List<string> ATKArray = new List<string>();
+                                    ATKArray = monster.ATKPoints.ToString("N").Split(".").ToList();
 
                                     AllDeckDetails.Add("");
                                     AllDeckDetails.Add(@$"{MonsterNumber}.");
                                     AllDeckDetails.Add(@$"Monster name: {monster.Name}");
-                                    AllDeckDetails.Add($@"{monster.Name}'s Power Level: {monster.PowerLevel.ToString("N")}");
-                                    AllDeckDetails.Add($@"{monster.Name}'s ATK points: {monster.ATKPoints.ToString("N")}");
+                                    AllDeckDetails.Add($@"{monster.Name}'s Power Level: {PowerLevelArray.ElementAt(0)}");
+                                    AllDeckDetails.Add($@"{monster.Name}'s ATK points: {ATKArray.ElementAt(0)}");
                                     if (monster.DEFPoints == 0 || monster.DEFPoints == 0.1 || monster.DEFPoints == monster.ATKPoints)
                                     {
                                         AllDeckDetails.Add($@"{monster.Name}'s DEF Points: Uncalculated");
                                     }
                                     else
                                     {
-                                        AllDeckDetails.Add($@"{monster.Name}'s DEF Points: {monster.DEFPoints.ToString("N")}");
+                                        List<string> DEFArray = new List<string>();
+                                        DEFArray = monster.DEFPoints.ToString("N").Split(".").ToList();
+                                        AllDeckDetails.Add($@"{monster.Name}'s DEF Points: {DEFArray.ElementAt(0)}");
                                     }
 
                                     int NumberOfTributesRequired = 0;
@@ -1911,7 +2012,13 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                             double currentStarMinimum = Math.Round(TheMonstersDeck.TheLowestAllowedATKPoints + ((star - 1) * GapBetweenEachStar));
                             double currentStarMaximum = Math.Round(TheMonstersDeck.TheLowestAllowedATKPoints + (star) * GapBetweenEachStar);
-                            AllDeckDetails.Add($@"{star} star: between {currentStarMinimum} to {currentStarMaximum}");
+
+                            List<string> MinArray = new List<string>();
+                            MinArray = currentStarMinimum.ToString("N").Split(".").ToList();
+                            List<string> MaxArray = new List<string>();
+                            MaxArray = currentStarMaximum.ToString("N").Split(".").ToList();
+
+                            AllDeckDetails.Add($@"{star} star: between {MinArray.ElementAt(0)} to {MaxArray.ElementAt(0)}");
                         }
                         AllDeckDetails.Add("");
                         AllDeckDetails.Add(@$"End of information for the deck named {TheMonstersDeck.DeckName}");
@@ -1924,11 +2031,13 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                         Console.WriteLine(@$"Text file for the deck {TheMonstersDeck.DeckName} has been saved succesfully.");
                         Console.WriteLine($@"Enter anything to return to the main meun.");
                         Console.ReadLine();
+                        GC.Collect();
                         return;
                     }
                     throw new Exception("Shouldn't get here");
 
                     #endregion
+
                 }
                 else
                 {
@@ -1940,6 +2049,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
             static string OverwritingSave(Deck chosenDeck)
             {
+                GC.Collect();
+
                 string TheChoiceToOverWrite;
                 string pathForDirectory = $@"YugiohDBZConverter";
                 string DeckPath = $@"YugiohDBZConverter\{chosenDeck.DeckName}.xml";
@@ -1978,6 +2089,7 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                         }
                     }              
                 }
+                GC.Collect();
                 return "Irrelevant";
             }
 
@@ -1989,6 +2101,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
             static void DeleteDeck(List<Deck> AllDecks)
             {
+                GC.Collect();
+
                 #region finding the deck to delete
 
                 CharacterOrMonster CurrentCharacter = new CharacterOrMonster();
@@ -2058,6 +2172,8 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
 
                 #endregion
 
+                GC.Collect();
+
                 #region Deleting it
 
                 if (HasTheConverterFoundAMatchBetweenTheChoosenNameAndExistingDeckName)
@@ -2126,6 +2242,7 @@ namespace DBZ_Power_levels_to_Yugioh_ATK_points_converter___working_version
                     Console.WriteLine("A reminder, this action is permant and cannot be undone.");
                     Console.WriteLine("Enter anything to return to the main meun.");
                     Console.ReadLine();
+                    GC.Collect();
                     return;
                 }
 

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "DBZ Power levels to Yugioh ATK points converter - working version/1.0.0": {
+        "runtime": {
+          "DBZ Power levels to Yugioh ATK points converter - working version.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DBZ Power levels to Yugioh ATK points converter - working version/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
